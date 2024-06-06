@@ -11,6 +11,19 @@ async def on_ready():
     print(f"{bot.user}啟動！")
     print("------")
 
+@bot.event
+async def rutomboy(message):
+    if message.author == bot.user:
+        return
+    if message.content.startwith("潘宇軒"):
+        await message.channel.send("是男娘")
+
+@bot.event
+async def on_member_join(member):
+    ch_id = 1248216296663814166
+    chan_readonly = bot.get_channel(ch_id)
+    await chan_readonly.send(f"{member.mention} 你好")    
+
 @bot.slash_command(description="回覆訊息")
 async def hello(ctx):
     await ctx.respond("hi")
@@ -23,7 +36,7 @@ async def nowtime(ctx):
     await ctx.respond(f"現在時間: `{current_time_str}`")
 
 @bot.slash_command(description="好欸")
-async def oYes(ctx,st:str):
+async def oyes(ctx,st:str):
     await ctx.respond(f"好欸, {st}")
 
 TOKN = os.getenv('TOKEN')
