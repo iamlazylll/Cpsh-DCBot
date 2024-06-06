@@ -5,24 +5,24 @@ import datetime
 load_dotenv()
 bot = discord.Bot(intents = discord.Intents.all())
 
-@bot.event
+@bot.listen(once = True)
 async def on_ready():
     print("你好 我是")
     print(f"{bot.user}啟動！")
     print("------")
 
-@bot.event
+@bot.listen('on_message')
 async def rutomboy(message):
-    if message.author == bot.user:
+    if message.author.id == bot.user.id:
         return
-    if message.content.startwith("潘宇軒"):
+    if message.content.startswith("潘宇軒"):
         await message.channel.send("是男娘")
 
-@bot.event
-async def on_member_join(member):
+@bot.listen('on_member_join')
+async def ppljoin(member):
     ch_id = 1248216296663814166
     chan_readonly = bot.get_channel(ch_id)
-    await chan_readonly.send(f"{member.mention} 你好")    
+    await chan_readonly.send(f"{member.mentions} 你好")    
 
 @bot.slash_command(description="回覆訊息")
 async def hello(ctx):
