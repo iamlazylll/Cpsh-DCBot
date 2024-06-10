@@ -230,14 +230,14 @@ async def goodmorning(message):
         await message.channel.send("午安")
 
 @bot.listen('on_message')
-async def goodmorning(message):
+async def goodafter(message):
     if message.author.id == bot.user.id:
         return
     if message.content == "午安":
         await message.channel.send("晚安")
 
 @bot.listen('on_message')
-async def goodmorning(message):
+async def goodnight(message):
     if message.author.id == bot.user.id:
         return
     if message.content == "晚安":
