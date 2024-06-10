@@ -4,8 +4,8 @@ import discord
 import random
 import datetime
 from typing import List
-from discord.commands import Option
 from discord.ext import commands
+from discord.commands import Option
 load_dotenv()
 bot = discord.Bot(intents = discord.Intents.all())
 class TicTacToeButton(discord.ui.Button["TicTacToe"]):
