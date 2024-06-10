@@ -53,7 +53,7 @@ class tictactoe(commands.Cog):
     class TicTacToe(discord.ui.View):
         # This tells the IDE or linter that all our children will be TicTacToeButtons.
         # This is not required.
-        children: List[TicTacToeButton]
+        children: List['TicTacToeButton']
         X = -1
         O = 1
         Tie = 2
