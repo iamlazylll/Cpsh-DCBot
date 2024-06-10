@@ -209,7 +209,7 @@ async def tic(ctx: commands.Context):
     # Setting the reference message to ctx.message makes the bot reply to the member's message.
     await ctx.send("Tic Tac Toe: X goes first", view=TicTacToe(), reference=ctx.message)
 
-@bot.listen(once = True)
+@bot.listen()
 async def on_ready():
     print("你好 我是")
     print(f"{bot.user}啟動！")
@@ -244,15 +244,12 @@ async def goodnight(message):
         await message.channel.send("瑪卡巴卡")
 
 @bot.listen('on_member_join')
-async def ppljoin(member, interaction):
-    channel = bot.get_channel(interaction.channel_id)
-    chan_readonly = bot.get_channel(channel)
-    await chan_readonly.send(f"{member.mentions} 你好")    
+async def ppljoin(member):
+    await member.send(f"{member.mentions} 你好")    
 
 @bot.slash_command(name = "你好", description="回覆訊息")
 async def hello(ctx):
     await ctx.respond("hi")
-
 
 @bot.slash_command(name = "現在時間", description="就是現在時間")
 async def nowtime(ctx):
