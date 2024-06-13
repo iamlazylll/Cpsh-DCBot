@@ -230,6 +230,20 @@ async def ruchangprince(message):
         await message.channel.send("拜見張氏太子")
 
 @bot.listen('on_message')
+async def ruchin(message):
+    if message.author.id == bot.user.id:
+        return
+    if message.content.startswith("秦士閎"):
+        await message.channel.send("Chin士閎")
+
+@bot.listen('on_message')
+async def justsoso(message):
+    if message.author.id == bot.user.id:
+        return
+    if message.content == "這麼好":
+        await message.channel.send("還好")
+
+@bot.listen('on_message')
 async def goodmorning(message):
     if message.author.id == bot.user.id:
         return
