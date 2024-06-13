@@ -223,6 +223,13 @@ async def rutomboy(message):
         await message.channel.send("是打藝之神")
 
 @bot.listen('on_message')
+async def ruchangprince(message):
+    if message.author.id == bot.user.id:
+        return
+    if message.content.startswith("張祐睿"):
+        await message.channel.send("拜見張氏太子")
+
+@bot.listen('on_message')
 async def goodmorning(message):
     if message.author.id == bot.user.id:
         return
